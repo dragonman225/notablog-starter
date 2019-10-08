@@ -1,0 +1,101 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Chrome, Firefox OS and Opera Status Bar Color -->
+  <meta name="theme-color" content="#FFFFFF">
+  <meta property="og:title" content="{{siteMeta.title}}">
+  {{if(options.siteMeta.description.length > 0)}}
+  <meta property="og:description" content="{{siteMeta.descriptionPlain}}">
+  {{/if}}
+  <meta property="og:type" content="blog">
+  <title>{{siteMeta.title}}</title>
+  <link rel="stylesheet" type="text/css" href="css/prism.css">
+  <link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
+  <link rel="stylesheet" type="text/css" href="css/layout.css">
+  <link rel="stylesheet" type="text/css" href="css/notion-color.css">
+  <link rel="stylesheet" type="text/css" href="css/theme.css">
+  <link rel="stylesheet" type="text/css" href="css/debug.css">
+  <link rel="stylesheet" type="text/css" href="css/notablog.css">
+  <style>
+    :root {
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <a href="index.html">
+      <div class="nav-btn">{{siteMeta.iconHTML}} <span>Home</span></div>
+    </a>
+    {{each(options.siteMeta.pages)}}
+    {{if(@this.publish && @this.inMenu)}}
+    <span class="nav-breadcrumb-slash">&centerdot;</span>
+    <a href="{{@this.url}}">
+      <div class="nav-btn">{{@this.iconHTML}} <span>{{@this.title}}</span></div>
+    </a>
+    {{/if}}
+    {{/each}}
+  </nav>
+  <div class="container">
+    {{if(options.siteMeta.cover)}}
+    <div class="page-cover">
+      <img src="{{siteMeta.cover}}">
+    </div>
+    {{/if}}
+    <div class="page-title {{if(!options.siteMeta.cover)}}page-title--nocover{{/if}}">
+      <div class="page-icon">{{siteMeta.iconHTML}}</div>
+      <h1>{{siteMeta.title}}</h1>
+    </div>
+    {{if(options.siteMeta.description)}}
+    <div>
+      <span class="quote--big">&ldquo;</span>
+      {{siteMeta.descriptionHTML}}
+      <span class="quote--big">&bdquo;</span>
+    </div>
+    {{/if}}
+    <div class="fill-h">
+      {{each(options.siteMeta.pages)}}
+      {{if(@this.publish && @this.inList)}}
+      <div class="post-brief">
+        <div class="block">
+          <h3>
+            {{@this.iconHTML}}
+            <a href="{{@this.url}}" class="post-brief--title">
+              {{@this.title}}
+            </a>
+          </h3>
+        </div>
+        <div class="block block--text">
+          {{@this.descriptionHTML}}
+        </div>
+        <div class="block block--text meta">
+          {{if(@this.date)}}
+          <span class="meta--date">Posted on {{@this.dateString}}</span>
+          {{/if}}
+          {{each(@this.tags)}}
+          <span class="meta--tag {{@this.color}}">{{@this.value}}</span>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+      {{/each}}
+    </div>
+    <footer>
+      <div class="site-footer">
+        <div>&copy; {{siteMeta.title}} 2019</div>
+        <div>&centerdot;</div>
+        <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+            rel="noopener noreferrer">Notablog</a>.
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
