@@ -58,7 +58,9 @@
           <span class="meta--date">Posted on {{post.dateString}}</span>
           {{/if}}
           {{each(options.post.tags)}}
-          <span class="meta--tag {{@this.color}}">{{@this.value}}</span>
+          <span class="meta--tag {{@this.color}}">
+            <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
+          </span>
           {{/each}}
         </div>
         {{/if}}

@@ -8,12 +8,11 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <!-- Chrome, Firefox OS and Opera Status Bar Color -->
   <meta name="theme-color" content="#FFFFFF">
-  <meta property="og:title" content="{{siteMeta.title}}">
-  {{if(options.siteMeta.description.length > 0)}}
-  <meta property="og:description" content="{{siteMeta.descriptionPlain}}">
-  {{/if}}
+  <meta property="og:title" content="#{{tag.value}} in {{siteMeta.title}}">
+  <meta property="og:description" content="All posts about #{{tag.value}}">
   <meta property="og:type" content="blog">
-  <title>{{siteMeta.title}}</title>
+  <title>#{{tag.value}} in {{siteMeta.title}}</title>
+  <base href="../">
   <link rel="stylesheet" type="text/css" href="css/prism.css">
   <link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
   <link rel="stylesheet" type="text/css" href="css/layout.css">
@@ -23,7 +22,7 @@
   <link rel="stylesheet" type="text/css" href="css/notablog.css">
   <style>
     :root {
-      font-size: 20px;
+      font-size: 18px;
     }
   </style>
 </head>
@@ -43,24 +42,13 @@
     {{/each}}
   </nav>
   <div class="container">
-    {{if(options.siteMeta.cover)}}
-    <div class="page-cover">
-      <img src="{{siteMeta.cover}}">
+    <!-- Tag header -->
+    <div class="tag-header">
+      <h1>#{{tag.value}}</h1>
     </div>
-    {{/if}}
-    <div class="page-title {{if(!options.siteMeta.cover)}}page-title--nocover{{/if}}">
-      <div class="page-icon">{{siteMeta.iconHTML}}</div>
-      <h1>{{siteMeta.title}}</h1>
-    </div>
-    {{if(options.siteMeta.description)}}
-    <div>
-      <span class="quote--big">&ldquo;</span>
-      {{siteMeta.descriptionHTML}}
-      <span class="quote--big">&bdquo;</span>
-    </div>
-    {{/if}}
+    <!-- PageMetas -->
     <div class="fill-h">
-      {{each(options.siteMeta.pages)}}
+      {{each(options.tag.pageMetas)}}
       {{if(@this.publish && @this.inList)}}
       <div class="post-brief">
         <div class="block">
@@ -88,6 +76,8 @@
       {{/if}}
       {{/each}}
     </div>
+    <!-- All tags -->
+    <!-- Footer -->
     <footer>
       <div class="site-footer">
         <div>&copy; {{siteMeta.title}} 2019</div>

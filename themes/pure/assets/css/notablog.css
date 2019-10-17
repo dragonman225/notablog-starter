@@ -48,6 +48,10 @@
   white-space: nowrap;
 }
 
+.meta--tag > a {
+  border: none;
+}
+
 .nav {
   display: flex;
   align-items: center;
