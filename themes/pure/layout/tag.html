@@ -8,12 +8,11 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <!-- Chrome, Firefox OS and Opera Status Bar Color -->
   <meta name="theme-color" content="#FFFFFF">
-  <meta property="og:title" content="{{post.title}}">
-  {{if(options.post.description.length > 0)}}
-  <meta property="og:description" content="{{post.descriptionPlain}}">
-  {{/if}}
+  <meta property="og:title" content="#{{tag.value}} in {{siteMeta.title}}">
+  <meta property="og:description" content="All posts about #{{tag.value}}">
   <meta property="og:type" content="blog">
-  <title>{{post.title}}</title>
+  <title>#{{tag.value}} in {{siteMeta.title}}</title>
+  <base href="../">
   <link rel="stylesheet" type="text/css" href="css/prism.css">
   <link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
   <link rel="stylesheet" type="text/css" href="css/layout.css">
@@ -23,7 +22,7 @@
   <link rel="stylesheet" type="text/css" href="css/notablog.css">
   <style>
     :root {
-      font-size: 16px;
+      font-size: 18px;
     }
   </style>
 </head>
@@ -43,30 +42,42 @@
     {{/each}}
   </nav>
   <div class="container">
-    <div id="post-body" class="fill-h">
-      {{if(options.post.cover)}}
-      <div class="page-cover">
-        <img src="{{post.cover}}">
-      </div>
-      {{/if}}
-      <div id="{{post.id}}" class="page-title {{if(!options.post.cover)}}page-title--nocover{{/if}}">
-        <div class="page-icon">{{post.iconHTML}}</div>
-        <h1>{{post.title}}</h1>
-        {{if(options.post.date || options.post.tags.length)}}
+    <!-- Tag header -->
+    <div class="tag-header">
+      <h1>#{{tag.value}}</h1>
+    </div>
+    <!-- PageMetas -->
+    <div class="fill-h">
+      {{each(options.tag.pageMetas)}}
+      {{if(@this.publish && @this.inList)}}
+      <div class="post-brief">
+        <div class="block">
+          <h3>
+            {{@this.iconHTML}}
+            <a href="{{@this.url}}" class="post-brief--title">
+              {{@this.title}}
+            </a>
+          </h3>
+        </div>
+        <div class="block block--text">
+          {{@this.descriptionHTML}}
+        </div>
         <div class="block block--text meta">
-          {{if(options.post.date)}}
-          <span class="meta--date">Posted on {{post.dateString}}</span>
+          {{if(@this.date)}}
+          <span class="meta--date">Posted on {{@this.dateString}}</span>
           {{/if}}
-          {{each(options.post.tags)}}
+          {{each(@this.tags)}}
           <span class="meta--tag {{@this.color}}">
             <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
           </span>
           {{/each}}
         </div>
-        {{/if}}
       </div>
-      {{post.contentHTML}}
+      {{/if}}
+      {{/each}}
     </div>
+    <!-- All tags -->
+    <!-- Footer -->
     <footer>
       <div class="site-footer">
         <div>&copy; {{siteMeta.title}} 2019</div>

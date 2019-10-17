@@ -79,7 +79,9 @@
           <span class="meta--date">Posted on {{@this.dateString}}</span>
           {{/if}}
           {{each(@this.tags)}}
-          <span class="meta--tag {{@this.color}}">{{@this.value}}</span>
+          <span class="meta--tag {{@this.color}}">
+            <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
+          </span>
           {{/each}}
         </div>
       </div>
