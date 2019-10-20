@@ -114,14 +114,18 @@ ul {
   list-style-type: disc;
 }
 
-/* 18*1.611 = 16*1.8125 */
+/** 
+ * Trick to make bullet larger without affecting line-height.
+ * bullet_size * bullet_line-height = font-size * normal_line-height
+ *     18      *       1.8125       =     18    *       1.8125
+ */
 ul>li {
   font-size: 18px;
-  line-height: 1.611;
+  line-height: 1.8125;
 }
 
 ul>li div {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.8125;
 }
 
