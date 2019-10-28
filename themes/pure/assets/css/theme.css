@@ -13,8 +13,8 @@ blockquote {
   background: rgba(235, 236, 237, 0.3);
   border-left: 5px solid currentcolor;
   border-radius: 5px;
-  margin: 5px 0;
-  padding: 0.5em 0.9em;
+  margin: 0.5rem 0; /* reference to root elem */
+  padding: 0.5em 0.9em; /* reference to local elem */
   font-size: 1.2em;
 }
 
