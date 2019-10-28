@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "generate": "node node_modules/notablog",
+    "generate--debug": "DEBUG_EN= node node_modules/notablog",
     "build": "npm run generate",
     "dev:generate": "node ../notablog",
+    "dev:generate--debug": "DEBUG_EN= node ../notablog",
     "dev:clean": "rm -rf source/notion_cache public",
     "dev:prof": "node --prof ../notablog"
   },
   "dependencies": {
-    "notablog": "0.3.8"
+    "notablog": "0.3.9"
   }
 }
