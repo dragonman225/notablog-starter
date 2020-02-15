@@ -9,17 +9,17 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <!-- Chrome, Firefox OS and Opera Status Bar Color -->
   <meta name="theme-color" content="#FFFFFF">
-  <meta property="og:title" content="#{{tag.value}} in {{siteMeta.title}}">
-  <meta property="og:description" content="All posts about #{{tag.value}}">
+  <meta property="og:title" content="#{{tagName}} — {{siteMeta.title}}">
+  <meta name="description" content="All posts tagged with {{tagName}}">
+  <meta property="og:description" content="All posts tagged with {{tagName}}">
   <meta property="og:type" content="blog">
-  <title>#{{tag.value}} in {{siteMeta.title}}</title>
+  <title>#{{tagName}} — {{siteMeta.title}}</title>
   <base href="../">
-  <link rel="stylesheet" type="text/css" href="css/prism.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
   <link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
-  <link rel="stylesheet" type="text/css" href="css/layout.css">
-  <link rel="stylesheet" type="text/css" href="css/notion-color.css">
   <link rel="stylesheet" type="text/css" href="css/theme.css">
-  <link rel="stylesheet" type="text/css" href="css/debug.css">
   <link rel="stylesheet" type="text/css" href="css/notablog.css">
   <style>
     :root {
@@ -29,66 +29,59 @@
 </head>
 
 <body>
-  <nav class="nav">
+  <nav class="Navbar">
     <a href="index.html">
-      <div class="nav-btn">{{siteMeta.iconHTML}} <span>Home</span></div>
+      <div class="Navbar__Btn">{{siteMeta.iconHTML}} <span>Home</span></div>
     </a>
     {{each(options.siteMeta.pages)}}
     {{if(@this.publish && @this.inMenu)}}
-    <span class="nav-breadcrumb-slash">&centerdot;</span>
+    <span class="Navbar__Delim">&centerdot;</span>
     <a href="{{@this.url}}">
-      <div class="nav-btn">{{@this.iconHTML}} <span>{{@this.title}}</span></div>
+      <div class="Navbar__Btn">{{@this.iconHTML}} <span>{{@this.title}}</span></div>
     </a>
     {{/if}}
     {{/each}}
   </nav>
-  <div class="container">
-    <!-- Tag header -->
-    <div class="tag-header">
-      <h1>#{{tag.value}}</h1>
-    </div>
-    <!-- PageMetas -->
-    <div class="fill-h">
-      {{each(options.tag.pageMetas)}}
+  <header class="Header">
+    <div class="Header__Spacer--NoCover"></div>
+    <h1 class="Header__Title">#{{tagName}}</h1>
+  </header>
+  <article class="ArticleList">
+    {{each(options.pages)}}
       {{if(@this.publish && @this.inList)}}
-      <div class="post-brief">
-        <div class="block">
-          <h3>
+    <article class="Article">
+      <h3 class="Article__Title">
             {{@this.iconHTML}}
-            <a href="{{@this.url}}" class="post-brief--title">
+        <a href="{{@this.url}}">
               {{@this.title}}
             </a>
           </h3>
-        </div>
-        <div class="block block--text">
+      {{if(@this.descriptionHTML)}}
+      <p class="Article__Desc">
           {{@this.descriptionHTML}}
-        </div>
-        <div class="block block--text meta">
+      </p>
+      {{/if}}
+      <div class="DateTagBar">
           {{if(@this.date)}}
-          <span class="meta--date">Posted on {{@this.dateString}}</span>
+        <span class="DateTagBar__Date">Posted on {{@this.dateString}}</span>
           {{/if}}
           {{each(@this.tags)}}
-          <span class="meta--tag {{@this.color}}">
+        <span class="DateTagBar__Tag DateTagBar__Tag--{{@this.color}}">
             <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
           </span>
           {{/each}}
         </div>
-      </div>
+    </article>
       {{/if}}
       {{/each}}
-    </div>
-    <!-- All tags -->
-    <!-- Footer -->
-    <footer>
-      <div class="site-footer">
+  </article>
+  <footer class="Footer">
         <div>&copy; {{siteMeta.title}} 2019</div>
         <div>&centerdot;</div>
         <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
             rel="noopener noreferrer">Notablog</a>.
         </div>
-      </div>
     </footer>
-  </div>
 </body>
 
 </html>

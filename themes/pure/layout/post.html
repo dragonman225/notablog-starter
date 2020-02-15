@@ -11,17 +11,17 @@
   <meta name="theme-color" content="#FFFFFF">
   <meta property="og:title" content="{{post.title}}">
   {{if(options.post.description.length > 0)}}
+  <meta name="description" content="{{post.descriptionPlain}}">
   <meta property="og:description" content="{{post.descriptionPlain}}">
   {{/if}}
   <meta property="og:type" content="blog">
   <title>{{post.title}}</title>
-  <link rel="stylesheet" type="text/css" href="css/prism.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
   <link rel="stylesheet" type="text/css" href="css/SourceSansPro.css">
-  <link rel="stylesheet" type="text/css" href="css/layout.css">
-  <link rel="stylesheet" type="text/css" href="css/notion-color.css">
-  <link rel="stylesheet" type="text/css" href="css/theme.css">
-  <link rel="stylesheet" type="text/css" href="css/debug.css">
   <link rel="stylesheet" type="text/css" href="css/notablog.css">
+  <link rel="stylesheet" type="text/css" href="css/theme.css">
   <style>
     :root {
       font-size: 18px;
@@ -30,54 +30,52 @@
 </head>
 
 <body>
-  <nav class="nav">
+  <nav class="Navbar">
     <a href="index.html">
-      <div class="nav-btn">{{siteMeta.iconHTML}} <span>Home</span></div>
+      <div class="Navbar__Btn">{{siteMeta.iconHTML}} <span>Home</span></div>
     </a>
     {{each(options.siteMeta.pages)}}
     {{if(@this.publish && @this.inMenu)}}
-    <span class="nav-breadcrumb-slash">&centerdot;</span>
+    <span class="Navbar__Delim">&centerdot;</span>
     <a href="{{@this.url}}">
-      <div class="nav-btn">{{@this.iconHTML}} <span>{{@this.title}}</span></div>
+      <div class="Navbar__Btn">{{@this.iconHTML}} <span>{{@this.title}}</span></div>
     </a>
     {{/if}}
     {{/each}}
   </nav>
-  <div class="container">
-    <div id="post-body" class="fill-h">
+  <header class="Header">
       {{if(options.post.cover)}}
-      <div class="page-cover">
+    <div class="Header__Cover">
         <img src="{{post.cover}}">
       </div>
       {{/if}}
-      <div id="{{post.id}}" class="page-title {{if(!options.post.cover)}}page-title--nocover{{/if}}">
-        <div class="page-icon">{{post.iconHTML}}</div>
-        <h1>{{post.title}}</h1>
+    <div id="{{post.uri}}" class="Header__Spacer {{if(!options.post.cover)}}Header__Spacer--NoCover{{/if}}">
+    </div>
+    {{if(options.post.icon)}}
+    <div class="Header__Icon">{{post.iconHTML}}</div>
+    {{/if}}
+    <h1 class="Header__Title">{{post.title}}</h1>
         {{if(options.post.date || options.post.tags.length)}}
-        <div class="block block--text meta">
+    <div class="DateTagBar">
           {{if(options.post.date)}}
-          <span class="meta--date">Posted on {{post.dateString}}</span>
+      <span class="DateTagBar__Date">Posted on {{post.dateString}}</span>
           {{/if}}
           {{each(options.post.tags)}}
-          <span class="meta--tag {{@this.color}}">
+      <span class="DateTagBar__Tag DateTagBar__Tag--{{@this.color}}">
             <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
           </span>
           {{/each}}
         </div>
         {{/if}}
-      </div>
+  </header>
       {{post.contentHTML}}
-    </div>
-    <footer>
-      <div class="site-footer">
+  <footer class="Footer">
         <div>&copy; {{siteMeta.title}} 2019</div>
         <div>&centerdot;</div>
         <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
             rel="noopener noreferrer">Notablog</a>.
         </div>
-      </div>
     </footer>
-  </div>
 </body>
 
 </html>
