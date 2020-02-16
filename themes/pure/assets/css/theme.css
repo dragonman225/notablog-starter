@@ -177,6 +177,10 @@ pre.Code code {
   tab-size: 2;
 }
 
+.Code.Code--NoWrap .SemanticString {
+  white-space: pre;
+}
+
 /* Collection */
 
 .CollectionInline>h3 {
