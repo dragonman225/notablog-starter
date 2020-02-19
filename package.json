@@ -12,6 +12,6 @@
     "dev:prof": "node --prof ../notablog"
   },
   "dependencies": {
-    "notablog": "0.3.11"
+    "notablog": "1.0.0-beta.1"
   }
 }
