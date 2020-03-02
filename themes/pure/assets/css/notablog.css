@@ -275,5 +275,7 @@
 
 .inline-img-icon {
   height: 1.2em;
+  /* Setting width prevents content shifting after image loaded. */
+  width: 1.2em;
   vertical-align: sub;
 }
