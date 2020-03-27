@@ -41,6 +41,7 @@
   --color-pill-pink: rgba(221, 0, 129, 0.2);
   --color-pill-red: rgba(255, 0, 26, 0.2);
   --color-ui-hover-bg: rgba(55, 53, 47, 0.08);
+  --column-spacing: 46px;
 }
 
 body {
@@ -811,6 +812,20 @@ pre.Code code {
   font-size: 0.9em;
   padding: 0.2em 0.4em;
   word-break: break-word;
+}
+
+.SemanticString__Fragment--HighlightedBg, .SemanticString__Fragment--HighlightedColor {
+  background-color: inherit;
+}
+
+/* Code in highlighted should use the highlight background or color. */
+
+.SemanticString__Fragment--HighlightedBg .SemanticString__Fragment--Code {
+  background-color: inherit;
+}
+
+.SemanticString__Fragment--HighlightedColor .SemanticString__Fragment--Code {
+  color: inherit;
 }
 
 .SemanticString__Fragment--ColorDefault {
