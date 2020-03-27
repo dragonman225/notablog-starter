@@ -128,21 +128,26 @@
 
 .DateTagBar {
   font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.DateTagBar span:not(:first-child) {
-  margin-left: 10px;
+.DateTagBar__Item {
+  margin-right: 10px;
+  margin-bottom: 0.5rem;
+  padding: 2px 6px;
+  border-radius: 3px;
 }
 
 .DateTagBar__Date {
   color: hsla(45, 2%, 40%, 1);
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .DateTagBar__Tag {
   color: hsla(45, 8%, 25%, 1);
   font-size: 0.85rem;
-  padding: 0 6px;
-  border-radius: 3px;
   white-space: nowrap;
 }
 

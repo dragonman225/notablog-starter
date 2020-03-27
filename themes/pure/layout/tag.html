@@ -63,10 +63,10 @@
       {{/if}}
       <div class="DateTagBar">
           {{if(@this.date)}}
-        <span class="DateTagBar__Date">Posted on {{@this.dateString}}</span>
+        <span class="DateTagBar__Item DateTagBar__Date">Posted on {{@this.dateString}}</span>
           {{/if}}
           {{each(@this.tags)}}
-        <span class="DateTagBar__Tag DateTagBar__Tag--{{@this.color}}">
+        <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--{{@this.color}}">
             <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
           </span>
           {{/each}}
