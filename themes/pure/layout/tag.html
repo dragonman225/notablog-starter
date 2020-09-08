@@ -14,6 +14,10 @@
   <meta property="og:description" content="All posts tagged with {{tagName}}">
   <meta property="og:type" content="blog">
   <title>#{{tagName}} — {{siteMeta.title}}</title>
+  <!-- Favicon -->
+  {{if(options.siteMeta.icon)}}
+  <link rel="shortcut icon" href="{{siteMeta.icon}}">
+  {{/if}}
   <base href="../">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
   <link rel="stylesheet" type="text/css"
