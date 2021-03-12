@@ -23,13 +23,13 @@
   text-decoration: none;
 }
 
-.Navbar a:last-child>.Navbar__Btn {
+.Navbar a:last-child > .Navbar__Btn {
   /* .nav padding 20px */
   margin-right: 20px;
 }
 
 .Navbar__Btn {
-  border-radius: 5px;
+  border-radius: 0.25rem;
   padding: 0 6px;
   line-height: 1.8125;
   transition: background 120ms ease-in 0s;
@@ -42,11 +42,11 @@
   background: rgba(55, 53, 47, 0.08);
 }
 
-.Navbar__Btn>span {
+.Navbar__Btn > span {
   white-space: nowrap;
 }
 
-.Navbar__Btn>span:not(:first-child) {
+.Navbar__Btn > span:not(:first-child) {
   margin-left: 6px;
 }
 
@@ -57,7 +57,9 @@
 
 /* Common */
 
-.Header, .PageRoot, .ArticleList {
+.Header,
+.PageRoot,
+.ArticleList {
   width: 900px;
   max-width: 100%;
   margin: 0px auto;
@@ -65,7 +67,9 @@
 }
 
 @media only screen and (max-width: 900px) {
-  .Header, .PageRoot, .ArticleList {
+  .Header,
+  .PageRoot,
+  .ArticleList {
     max-width: 87.5%;
     padding-left: 0px;
     padding-right: 0px;
@@ -88,7 +92,7 @@
   z-index: -1;
 }
 
-.Header__Cover>img {
+.Header__Cover > img {
   height: calc(30vh + 50px);
   width: 100%;
   object-fit: cover;
@@ -116,12 +120,13 @@
   font-weight: 700;
 }
 
-.Header>*:last-child {
+.Header > *:last-child {
   margin-bottom: 2.5rem;
 }
 
 .Header__DescBigQuoteMark {
   font-size: 1.5em;
+  line-height: 0;
 }
 
 /* DateTagBar */
@@ -136,7 +141,7 @@
   margin-right: 10px;
   margin-bottom: 0.5rem;
   padding: 2px 6px;
-  border-radius: 3px;
+  border-radius: 0.25rem;
 }
 
 .DateTagBar__Date {
@@ -191,7 +196,7 @@
   background: rgba(255, 0, 26, 0.2);
 }
 
-.DateTagBar__Tag>a {
+.DateTagBar__Tag > a {
   border: none;
 }
 
@@ -214,12 +219,12 @@
   font-weight: 700;
 }
 
-.Article__Title>a {
+.Article__Title > a {
   margin-left: 5px;
   border-bottom: 2px solid hsl(45, 8%, 85%);
 }
 
-.Article__Title>a:hover {
+.Article__Title > a:hover {
   border-bottom: 2px solid hsl(45, 8%, 55%);
 }
 
@@ -246,7 +251,7 @@
   color: rgba(55, 53, 47, 0.6);
 }
 
-.Footer>div:nth-child(2) {
+.Footer > div:nth-child(2) {
   margin: 0 3px;
 }
 
@@ -267,12 +272,13 @@
   .Header__Icon {
     font-size: 55px;
   }
-  .Header__Cover>img {
+  .Header__Cover > img {
     height: calc(30vh + 30px);
   }
 }
 
-@supports (not (backdrop-filter: blur(20px))) and (not (-webkit-backdrop-filter: blur(20px))) {
+@supports (not (backdrop-filter: blur(20px))) and
+  (not (-webkit-backdrop-filter: blur(20px))) {
   .Navbar {
     background-color: white;
   }
