@@ -203,7 +203,7 @@
 /* Article */
 
 .Article {
-  margin: 1.5rem 0;
+  margin: 2rem 0;
 }
 
 .Article a {
@@ -214,9 +214,10 @@
 .Article__Title {
   margin: 0;
   padding-bottom: 0.5rem;
-  line-height: 1.654;
-  font-size: 1.625rem;
-  font-weight: 700;
+  line-height: 1.5;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .Article__Title > a {
