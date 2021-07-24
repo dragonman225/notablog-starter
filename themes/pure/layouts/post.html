@@ -28,7 +28,7 @@
   <link rel="stylesheet" type="text/css" href="css/theme.css">
   <style>
     :root {
-      font-size: 18px;
+      font-size: 20px;
     }
 
     .DateTagBar {
@@ -52,38 +52,38 @@
     {{/each}}
   </nav>
   <header class="Header">
-      {{if(options.post.cover)}}
+    {{if(options.post.cover)}}
     <div class="Header__Cover">
-        <img src="{{post.cover}}">
-      </div>
-      {{/if}}
+      <img src="{{post.cover}}">
+    </div>
+    {{/if}}
     <div class="Header__Spacer {{if(!options.post.cover)}}Header__Spacer--NoCover{{/if}}">
     </div>
     {{if(options.post.icon)}}
     <div class="Header__Icon">{{post.iconHTML}}</div>
     {{/if}}
     <h1 class="Header__Title">{{post.title}}</h1>
-        {{if(options.post.date || options.post.tags.length)}}
+    {{if(options.post.date || options.post.tags.length)}}
     <div class="DateTagBar">
-          {{if(options.post.date)}}
+      {{if(options.post.date)}}
       <span class="DateTagBar__Item DateTagBar__Date">Posted on {{post.dateString}}</span>
-          {{/if}}
-          {{each(options.post.tags)}}
+      {{/if}}
+      {{each(options.post.tags)}}
       <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--{{@this.color}}">
-            <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
-          </span>
-          {{/each}}
-        </div>
-        {{/if}}
+        <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
+      </span>
+      {{/each}}
+    </div>
+    {{/if}}
   </header>
-      {{post.contentHTML}}
+  {{post.contentHTML}}
   <footer class="Footer">
-        <div>&copy; {{siteMeta.title}} 2019</div>
-        <div>&centerdot;</div>
-        <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
-            rel="noopener noreferrer">Notablog</a>.
-        </div>
-    </footer>
+    <div>&copy; {{siteMeta.title}} 2019-2021</div>
+    <div>&centerdot;</div>
+    <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+        rel="noopener noreferrer">Notablog</a>.
+    </div>
+  </footer>
 </body>
 
 </html>

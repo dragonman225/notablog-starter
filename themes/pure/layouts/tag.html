@@ -9,17 +9,16 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <!-- Chrome, Firefox OS and Opera Status Bar Color -->
   <meta name="theme-color" content="#FFFFFF">
-  <meta property="og:title" content="{{siteMeta.title}}">
-  {{if(options.siteMeta.description.length > 0)}}
-  <meta name="description" content="{{siteMeta.descriptionPlain}}">
-  <meta property="og:description" content="{{siteMeta.descriptionPlain}}">
-  {{/if}}
+  <meta property="og:title" content="#{{tagName}} — {{siteMeta.title}}">
+  <meta name="description" content="All posts tagged with {{tagName}}">
+  <meta property="og:description" content="All posts tagged with {{tagName}}">
   <meta property="og:type" content="blog">
-  <title>{{siteMeta.title}}</title>
+  <title>#{{tagName}} — {{siteMeta.title}}</title>
   <!-- Favicon -->
   {{if(options.siteMeta.icon)}}
   <link rel="shortcut icon" href="{{siteMeta.icon}}">
   {{/if}}
+  <base href="../">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
@@ -48,61 +47,45 @@
     {{/each}}
   </nav>
   <header class="Header">
-    {{if(options.siteMeta.cover)}}
-    <div class="Header__Cover">
-      <img src="{{siteMeta.cover}}">
-    </div>
-    {{/if}}
-    <div class="Header__Spacer {{if(!options.siteMeta.cover)}}Header__Spacer--NoCover{{/if}}">
-    </div>
-    {{if(options.siteMeta.icon)}}
-    <div class="Header__Icon">{{siteMeta.iconHTML}}</div>
-    {{/if}}
-    <h1 class="Header__Title">{{siteMeta.title}}</h1>
-    {{if(options.siteMeta.description)}}
-    <div class="Header__Desc">
-      <span class="Header__DescBigQuoteMark">&ldquo;</span>
-      {{siteMeta.descriptionHTML}}
-      <span class="Header__DescBigQuoteMark">&bdquo;</span>
-    </div>
-    {{/if}}
+    <div class="Header__Spacer--NoCover"></div>
+    <h1 class="Header__Title"># {{tagName}}</h1>
   </header>
   <article class="ArticleList">
-      {{each(options.siteMeta.pages)}}
-      {{if(@this.publish && @this.inList)}}
+    {{each(options.pages)}}
+    {{if(@this.publish)}}
     <article class="Article">
       <h3 class="Article__Title">
-            {{@this.iconHTML}}
+        {{@this.iconHTML}}
         <a href="{{@this.url}}">
-              {{@this.title}}
-            </a>
-          </h3>
+          {{@this.title}}
+        </a>
+      </h3>
       {{if(@this.descriptionHTML)}}
       <p class="Article__Desc">
-          {{@this.descriptionHTML}}
+        {{@this.descriptionHTML}}
       </p>
       {{/if}}
       <div class="DateTagBar">
-          {{if(@this.date)}}
+        {{if(@this.date)}}
         <span class="DateTagBar__Item DateTagBar__Date">Posted on {{@this.dateString}}</span>
-          {{/if}}
-          {{each(@this.tags)}}
+        {{/if}}
+        {{each(@this.tags)}}
         <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--{{@this.color}}">
-            <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
-          </span>
-          {{/each}}
-        </div>
+          <a href="tag/{{@this.value}}.html">{{@this.value}}</a>
+        </span>
+        {{/each}}
+      </div>
     </article>
-      {{/if}}
-      {{/each}}
+    {{/if}}
+    {{/each}}
   </article>
   <footer class="Footer">
-        <div>&copy; {{siteMeta.title}} 2019</div>
-        <div>&centerdot;</div>
-        <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
-            rel="noopener noreferrer">Notablog</a>.
-        </div>
-    </footer>
+    <div>&copy; {{siteMeta.title}} 2019-2021</div>
+    <div>&centerdot;</div>
+    <div>Powered by <a href="https://github.com/dragonman225/notablog" target="_blank"
+        rel="noopener noreferrer">Notablog</a>.
+    </div>
+  </footer>
 </body>
 
 </html>
