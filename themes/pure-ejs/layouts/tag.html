@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta property="og:title" content="#<%= tagName %> — <%= siteMeta.title %>">
+  <meta name="description" content="Posts with tag #<%= tagName %>">
+  <meta property="og:description" content="Posts with tag #<%= tagName %>">
+  <meta property="og:type" content="blog">
+  <title>#<%= tagName %> — <%= siteMeta.title %></title>
+  <base href="../">
+  <%- include('partials/head.html', { fontSize: 20, favicon: siteMeta.icon }) %>
+</head>
+
+<body>
+  <%- include('partials/navbar.html', { siteMeta }) %>
+  <header class="Header">
+    <div class="Header__Spacer--NoCover"></div>
+    <h1 class="Header__Title">#<%= tagName %></h1>
+  </header>
+  <%- include('partials/articleList.html', {
+    pages: pages.filter(page => page.publish) 
+  }) %>
+  <%- include('partials/footer.html', { siteMeta }) %>
+</body>
+
+</html>

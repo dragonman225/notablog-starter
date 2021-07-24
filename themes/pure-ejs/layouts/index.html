@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta property="og:title" content="<%= siteMeta.title %>">
+  <% if (siteMeta.description.length > 0) { %>
+    <meta name="description" content="<%= siteMeta.descriptionPlain %>">
+    <meta property="og:description" content="<%= siteMeta.descriptionPlain %>">
+  <% } %>
+  <meta property="og:type" content="blog">
+  <title><%= siteMeta.title %></title>
+  <%- include('partials/head.html', { fontSize: 20, favicon: siteMeta.icon }) %>
+</head>
+
+<body>
+  <%- include('partials/navbar.html', { siteMeta }) %>
+  <header class="Header">
+    <% if (siteMeta.cover) { %>
+      <div class="Header__Cover">
+        <img src="<%= siteMeta.cover %>">
+      </div>
+    <% } %>
+    <div class="Header__Spacer <% if (!siteMeta.cover) { %>Header__Spacer--NoCover<% } %>">
+    </div>
+    <% if (siteMeta.icon) { %>
+      <div class="Header__Icon"><%- siteMeta.iconHTML %></div>
+    <% } %>
+    <h1 class="Header__Title"><%= siteMeta.title %></h1>
+    <% if (siteMeta.description) { %>
+      <div class="Header__Desc">
+        <span class="Header__DescBigQuoteMark">&ldquo;</span>
+        <%- siteMeta.descriptionHTML %>
+        <span class="Header__DescBigQuoteMark">&bdquo;</span>
+      </div>
+    <% } %>
+  </header>
+  <%- include('partials/articleList.html', {
+    pages: siteMeta.pages.filter(page => page.publish && page.inList) 
+  }) %>
+  <%- include('partials/footer.html', { siteMeta }) %>
+</body>
+
+</html>

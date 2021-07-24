@@ -1,0 +1,27 @@
+<article class="ArticleList">
+<% pages.forEach(function(page) { %>
+  <article class="Article">
+    <h3 class="Article__Title">
+      <%- page.iconHTML %>
+      <a href="<%= page.url %>">
+        <%= page.title %>
+      </a>
+    </h3>
+    <% if (page.descriptionHTML) { %>
+      <p class="Article__Desc">
+        <%- page.descriptionHTML %>
+      </p>
+    <% } %>
+    <div class="DateTagBar">
+      <% if (page.date) { %>
+        <span class="DateTagBar__Item DateTagBar__Date">Posted on <%= page.dateString %></span>
+      <% } %>
+      <% page.tags.forEach(function(tag) { %>
+        <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--<%= tag.color %>">
+          <a href="tag/<%= tag.value %>.html"><%= tag.value %></a>
+        </span>
+      <% }) %>
+    </div>
+  </article>
+<% }) %>
+</article>

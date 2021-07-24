@@ -1,0 +1,294 @@
+/* Navbar */
+
+.Navbar {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 50px;
+  padding: 10px 20px;
+  /* Background blur stuff. */
+  background-color: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  overflow-x: auto;
+}
+
+.Navbar a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.Navbar a:last-child > .Navbar__Btn {
+  /* .nav padding 20px */
+  margin-right: 20px;
+}
+
+.Navbar__Btn {
+  border-radius: 0.25rem;
+  padding: 0 6px;
+  line-height: 1.8125;
+  transition: background 120ms ease-in 0s;
+  /* For centering inline image */
+  display: flex;
+  align-items: center;
+}
+
+.Navbar__Btn:hover {
+  background: rgba(55, 53, 47, 0.08);
+}
+
+.Navbar__Btn > span {
+  white-space: nowrap;
+}
+
+.Navbar__Btn > span:not(:first-child) {
+  margin-left: 6px;
+}
+
+.Navbar__Delim {
+  margin: 0 3px;
+  color: rgba(55, 53, 47, 0.4);
+}
+
+/* Common */
+
+.Header,
+.PageRoot,
+.ArticleList {
+  width: 900px;
+  max-width: 100%;
+  margin: 0px auto;
+  padding: 0px 96px;
+}
+
+@media only screen and (max-width: 900px) {
+  .Header,
+  .PageRoot,
+  .ArticleList {
+    max-width: 87.5%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+/* Header */
+
+.Header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.Header__Cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* Firefox need this while Chrome doesn't. */
+  left: 0;
+  z-index: -1;
+}
+
+.Header__Cover > img {
+  height: calc(30vh + 50px);
+  width: 100%;
+  object-fit: cover;
+}
+
+.Header__Spacer {
+  margin-top: 30vh;
+}
+
+.Header__Spacer--NoCover {
+  margin-top: calc(50px + 2.5rem);
+}
+
+.Header__Icon {
+  line-height: 1.1;
+  /* On Android Firefox, emoji can't be displayed if font-size > 77px. */
+  font-size: 75px;
+}
+
+.Header__Title {
+  margin-top: 2.5rem;
+  margin-bottom: 0.25em;
+  line-height: 1.2;
+  font-size: 2.625rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.Header > *:last-child {
+  margin-bottom: 2.5rem;
+}
+
+.Header__DescBigQuoteMark {
+  font-size: 1.5em;
+  line-height: 0;
+}
+
+/* DateTagBar */
+
+.DateTagBar {
+  font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.DateTagBar__Item {
+  margin-right: 10px;
+  margin-bottom: 0.5rem;
+  padding: 2px 6px;
+  border-radius: 0.25rem;
+}
+
+.DateTagBar__Date {
+  color: hsla(45, 2%, 40%, 1);
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.DateTagBar__Tag {
+  color: hsla(45, 8%, 25%, 1);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.DateTagBar__Tag--default {
+  background: rgba(206, 205, 202, 0.5);
+}
+
+.DateTagBar__Tag--gray {
+  background: rgba(155, 154, 151, 0.4);
+}
+
+.DateTagBar__Tag--brown {
+  background: rgba(140, 46, 0, 0.2);
+}
+
+.DateTagBar__Tag--orange {
+  background: rgba(245, 93, 0, 0.2);
+}
+
+.DateTagBar__Tag--yellow {
+  background: rgba(233, 168, 0, 0.2);
+}
+
+.DateTagBar__Tag--green {
+  background: rgba(0, 135, 107, 0.2);
+}
+
+.DateTagBar__Tag--blue {
+  background: rgba(0, 120, 223, 0.2);
+}
+
+.DateTagBar__Tag--purple {
+  background: rgba(103, 36, 222, 0.2);
+}
+
+.DateTagBar__Tag--pink {
+  background: rgba(221, 0, 129, 0.2);
+}
+
+.DateTagBar__Tag--red {
+  background: rgba(255, 0, 26, 0.2);
+}
+
+.DateTagBar__Tag > a {
+  border: none;
+}
+
+/* Article */
+
+.Article {
+  margin: 2rem 0;
+}
+
+.Article a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.Article__Title {
+  margin: 0;
+  padding-bottom: 0.5rem;
+  line-height: 1.5;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.Article__Title > a {
+  margin-left: 5px;
+  border-bottom: 2px solid hsl(45, 8%, 85%);
+}
+
+.Article__Title > a:hover {
+  border-bottom: 2px solid hsl(45, 8%, 55%);
+}
+
+.Article__Desc {
+  padding-bottom: 0.5rem;
+}
+
+/* PageRoot (content body) */
+
+.PageRoot {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+/* Footer */
+
+.Footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  padding: 5rem 3rem;
+  color: rgba(55, 53, 47, 0.6);
+}
+
+.Footer > div:nth-child(2) {
+  margin: 0 3px;
+}
+
+.Footer a {
+  color: rgba(55, 53, 47);
+}
+
+@media only screen and (max-width: 680px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  .Navbar {
+    box-shadow: rgba(15, 15, 15, 0.1) 0px 1px 0px, transparent 0px 0px 0px;
+  }
+  .Navbar__Btn {
+    font-size: 14px;
+  }
+  .Header__Icon {
+    font-size: 55px;
+  }
+  .Header__Cover > img {
+    height: calc(30vh + 30px);
+  }
+}
+
+@supports (not (backdrop-filter: blur(20px))) and
+  (not (-webkit-backdrop-filter: blur(20px))) {
+  .Navbar {
+    background-color: white;
+  }
+}
+
+.inline-img-icon {
+  height: 1.2em;
+  /* Setting width prevents content shifting after image loaded. */
+  width: 1.2em;
+  vertical-align: sub;
+}
