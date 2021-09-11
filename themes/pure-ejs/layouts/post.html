@@ -2,14 +2,17 @@
 <html lang="en">
 
 <head>
+  <%- include('partials/head.html', { fontSize: 20, favicon: siteMeta.iconUrl }) %>
+  <title><%= post.title %></title>
+  <meta property="og:type" content="blog">
   <meta property="og:title" content="<%= post.title %>">
   <% if (post.description.length > 0) { %>
     <meta name="description" content="<%= post.descriptionPlain %>">
     <meta property="og:description" content="<%= post.descriptionPlain %>">
   <% } %>
-  <meta property="og:type" content="blog">
-  <title><%= post.title %></title>
-  <%- include('partials/head.html', { fontSize: 20, favicon: siteMeta.icon }) %>
+  <% if (post.iconUrl) { %>
+    <meta property="og:image" content="<%= post.iconUrl %>">
+  <% } %>
   <style>
     .DateTagBar {
       margin-top: 1.0rem;
@@ -27,8 +30,10 @@
     <% } %>
     <div class="Header__Spacer <% if (!post.cover) { %>Header__Spacer--NoCover<% } %>">
     </div>
-    <% if (post.icon) { %>
-      <div class="Header__Icon"><%- post.iconHTML %></div>
+    <% if (post.iconUrl) { %>
+      <div class="Header__Icon">
+        <span><img class="inline-img-icon" src="<%= post.iconUrl %>"></span>
+      </div>
     <% } %>
     <h1 class="Header__Title"><%= post.title %></h1>
     <% if (post.date || post.tags.length) { %>

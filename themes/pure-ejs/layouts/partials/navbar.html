@@ -1,12 +1,18 @@
 <nav class="Navbar">
   <a href="index.html">
-    <div class="Navbar__Btn"><%- siteMeta.iconHTML %> <span>Home</span></div>
+    <div class="Navbar__Btn">
+      <span><img class="inline-img-icon" src="<%= siteMeta.iconUrl %>"></span>&nbsp;
+      <span>Home</span>
+    </div>
   </a>
   <% siteMeta.pages.forEach(function(page) { %>
     <% if (page.publish && page.inMenu) { %>
       <span class="Navbar__Delim">&centerdot;</span>
       <a href="<%= page.url %>">
-        <div class="Navbar__Btn"><%- page.iconHTML %> <span><%= page.title %></span></div>
+        <div class="Navbar__Btn">
+          <span><img class="inline-img-icon" src="<%= page.iconUrl %>"></span>&nbsp;
+          <span><%= page.title %></span>
+        </div>
       </a>
     <% } %>
   <% }) %>

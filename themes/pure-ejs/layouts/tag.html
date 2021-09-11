@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-  <meta property="og:title" content="#<%= tagName %> — <%= siteMeta.title %>">
+  <base href="../">
+  <%- include('partials/head.html', { fontSize: 20, favicon: siteMeta.iconUrl }) %>
+  <title>#<%= tagName %> | <%= siteMeta.title %></title>
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="#<%= tagName %> | <%= siteMeta.title %>">
   <meta name="description" content="Posts with tag #<%= tagName %>">
   <meta property="og:description" content="Posts with tag #<%= tagName %>">
-  <meta property="og:type" content="blog">
-  <title>#<%= tagName %> — <%= siteMeta.title %></title>
-  <base href="../">
-  <%- include('partials/head.html', { fontSize: 20, favicon: siteMeta.icon }) %>
 </head>
 
 <body>
