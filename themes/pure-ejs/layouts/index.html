@@ -6,7 +6,7 @@
   <title><%= siteMeta.title %></title>
   <meta property="og:type" content="blog">
   <meta property="og:title" content="<%= siteMeta.title %>">
-  <% if (siteMeta.description > 0) { %>
+  <% if (siteMeta.description) { %>
     <meta name="description" content="<%= siteMeta.descriptionPlain %>">
     <meta property="og:description" content="<%= siteMeta.descriptionPlain %>">
   <% } %>
