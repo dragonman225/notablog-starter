@@ -222,8 +222,11 @@
 }
 
 .Article__Title > a {
-  margin-left: 5px;
   border-bottom: 2px solid hsl(45, 8%, 85%);
+}
+
+.Article__Title > a:not(:first-child) {
+  margin-left: 5px;
 }
 
 .Article__Title > a:hover {
