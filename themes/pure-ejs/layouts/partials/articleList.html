@@ -2,7 +2,9 @@
 <% pages.forEach(function(page) { %>
   <article class="Article">
     <h3 class="Article__Title">
-      <span><img class="inline-img-icon" src="<%= page.iconUrl %>"></span>
+      <% if (page.iconUrl) { %>
+        <span><img class="inline-img-icon" src="<%= page.iconUrl %>"></span>
+      <% } %>
       <a href="<%= page.url %>">
         <%= page.title %>
       </a>
