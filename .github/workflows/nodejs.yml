@@ -1,4 +1,4 @@
-name: Node CI
+name: Node.js Reference Test
 
 on: [push]
 
@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.12, 12]
+        node-version: [15, 16]
 
     steps:
     - uses: actions/checkout@v1
