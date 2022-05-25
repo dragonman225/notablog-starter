@@ -876,7 +876,6 @@ pre.Code code {
 .SemanticString__Fragment--Code {
   border-radius: 5px;
   background-color: rgba(135, 131, 120, 0.15);
-  color: #ff4081;
   font-size: 0.9em;
   padding: 0.2em 0.4em;
   word-break: break-word;
