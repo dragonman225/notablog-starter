@@ -39,7 +39,7 @@
     <% if (post.date || post.tags.length) { %>
       <div class="DateTagBar">
         <% if (post.date) { %>
-          <span class="DateTagBar__Item DateTagBar__Date">Posted on <%= post.dateString %></span>
+          <span class="DateTagBar__Item DateTagBar__Date"><%= post.dateString %></span>
         <% } %>
         <% post.tags.forEach(function(tag) { %>
           <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--<%= tag.color %>">
