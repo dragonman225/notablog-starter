@@ -5,9 +5,7 @@
     # Controls when the workflow will run
     on:
       schedule:
-    		# 下一行是说在每天的国际标准时间23点（北京时间早上7点）触发该任务
-    		# 你可以随意修改
-        - cron: '5 * * * *'    
+        - cron: '5 23 * * *'    
       # Allows you to run this workflow manually from the Actions tab
       workflow_dispatch:
     
